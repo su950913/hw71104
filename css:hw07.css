@@ -1,0 +1,487 @@
+/* ==========================================================================
+   HW07 外部 CSS 樣式表 (External Stylesheet)
+   作業名稱：第七次作業：外部 CSS 樣式表與相對路徑
+   報導主題：綠廊蔓生：勤美草悟道與市民廣場文創報導
+   作者姓名：蘇宥緁
+   學生學號：D1582036
+   
+   【外部樣式表與相對路徑重點說明】：
+   1. 本檔案路徑為「css/hw07.css」，由位於根目錄的「HW07_D1582036.html」以：
+      <link rel="stylesheet" href="css/hw07.css"> 方式載入。
+   2. HTML 相對路徑起點：從 HTML 所在目錄出發，進入同層的 css 子資料夾讀取 hw07.css。
+   3. CSS 相對路徑起點：若未來在 CSS 中設定背景圖 url()，起點是「css 資料夾本身」，
+      因此必須先以「../」退回上一層（根目錄），再進入 images/，
+      例如：background-image: url("../images/banner.jpg");
+   4. 規範合規：不使用 @import、不使用外部字型樣式表、不使用 CSS 框架、不使用 !important。
+   ========================================================================== */
+
+/* ==========================================================================
+           1. 全域重設與基礎版面設定（元素選擇器）
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* 元素選擇器：設定整體網頁字型族系、行高、文字顏色與自然綠意背景底色 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Microsoft JhengHei", sans-serif;
+            font-size: 16px;
+            line-height: 1.85;
+            color: #263238; /* 深青灰色，比純黑更溫潤舒適，易於長文閱讀 */
+            background-color: #f4f7f4; /* 帶有微淡草綠感的柔和淺底色 */
+            margin: 0;
+            padding: 24px 16px;
+        }
+
+        /* 元素選擇器：將主要內容容器置中，設定最大閱讀寬度與卡片質感 */
+        header,
+        nav,
+        article,
+        aside,
+        footer {
+            max-width: 860px;
+            margin: 0 auto 28px auto; /* 盒子模型外距 (margin)：上下留白 28px，左右 auto 置中 */
+            background-color: #ffffff; /* 內文區塊使用乾淨純白背景 */
+            border-radius: 12px; /* 柔和圓角營造友善親和力 */
+            box-shadow: 0 4px 16px rgba(35, 78, 42, 0.06); /* 輕微墨綠色微陰影增加層次感 */
+            border: 1px solid #e2ebe2; /* 淡淡的綠灰色框線 */
+            padding: 32px; /* 盒子模型內距 (padding)：內部文字與邊界保持 32px 呼吸空間 */
+        }
+
+        /* 元素選擇器：水平分隔線美化 */
+        hr {
+            border: none;
+            border-top: 1px dashed #cfdbcf;
+            margin: 28px 0;
+        }
+
+        /* ==========================================================================
+           2. 文字階層與標題樣式（元素選擇器與文字排版）
+           ========================================================================== */
+        h1, h2, h3 {
+            color: #1e3d23; /* 濃郁森林綠，強化標題視覺重心 */
+            line-height: 1.35;
+            margin-top: 0;
+            font-weight: 700;
+        }
+
+        /* 主標題 h1 樣式 */
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.02em;
+        }
+
+        /* 章節次標題 h2 樣式：帶有墨綠色左側重點裝飾邊框 */
+        h2 {
+            font-size: 1.45rem;
+            margin-bottom: 16px;
+            padding-left: 14px;
+            border-left: 5px solid #2d6a3f; /* 左側邊框作為章節視覺導航標記 */
+            padding-bottom: 2px;
+        }
+
+        /* 子標題 h3 樣式 */
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: #2b5333;
+        }
+
+        p {
+            margin: 0 0 16px 0;
+            text-align: justify; /* 兩端對齊讓中文長文段落整齊雅緻 */
+        }
+
+        /* 強調標籤 strong 與 mark 預設樣式 */
+        strong {
+            color: #16361a;
+            font-weight: 600;
+        }
+
+        mark {
+            background-color: #d1fae5;
+            color: #065f46;
+            padding: 1px 5px;
+            border-radius: 3px;
+        }
+
+        /* ==========================================================================
+           3. 連結互動樣式（含 :hover 與 :focus-visible 鍵盤焦點指示）
+           ========================================================================== */
+        a {
+            color: #236442;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        /* 虛擬類別：滑鼠游標懸停時加深色澤並呈現淡淡綠底 */
+        a:hover {
+            color: #123e25;
+            background-color: #ecfdf5;
+            border-radius: 2px;
+        }
+
+        /* 虛擬類別：鍵盤 Tab 鍵導航時的無障礙高對比外框焦點提示 */
+        a:focus-visible,
+        summary:focus-visible {
+            outline: 3px solid #2d6a3f;
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* ==========================================================================
+           4. 頁首區塊（header 與類別選擇器）
+           ========================================================================== */
+        header {
+            background: linear-gradient(145deg, #ffffff 0%, #f1f7f2 100%);
+            border-top: 6px solid #2d6a3f; /* 頂部深綠色主題識別色條 */
+        }
+
+        .channel-tag {
+            display: inline-block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #2d6a3f;
+            background-color: #e3efe4;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+            letter-spacing: 0.04em;
+        }
+
+        .header-subtitle {
+            font-size: 1.05rem;
+            color: #3b5240;
+            margin-bottom: 16px;
+        }
+
+        .meta-info-box {
+            font-size: 0.9rem;
+            color: #556b59;
+            background-color: #f7faf7;
+            padding: 12px 16px;
+            border-radius: 6px;
+            border: 1px solid #e1ebe1;
+        }
+
+        /* ==========================================================================
+           5. 導覽目錄區塊（nav 元素與清單美化）
+           ========================================================================== */
+        nav {
+            background-color: #fcfdfc;
+            border-left: 5px solid #4a7c59;
+        }
+
+        .nav-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .nav-list li {
+            position: relative;
+        }
+
+        .nav-list a {
+            display: block;
+            padding: 8px 14px;
+            background-color: #f3f8f4;
+            color: #235431;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.96rem;
+            border: 1px solid #e2ece3;
+            transition: all 0.2s ease;
+        }
+
+        .nav-list a:hover {
+            background-color: #2d6a3f;
+            color: #ffffff;
+            transform: translateX(4px); /* 滑鼠懸停時微向右平移，增加可點擊反饋 */
+        }
+
+        /* ==========================================================================
+           6. 清單樣式（ul 與 ol）
+           ========================================================================== */
+        ul, ol {
+            padding-left: 24px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.75;
+        }
+
+        /* ==========================================================================
+           7. 表格美化（由 CSS 完全取代 border="1"，設定邊框合併、內距與表頭）
+           ========================================================================== */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto; /* 在窄視窗手機下能平順水平滑動，維持整齊排版 */
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse; /* 合併相鄰儲存格邊框，取代老舊 border="1" 雙格線 */
+            font-size: 0.95rem;
+            text-align: left;
+            background-color: #ffffff;
+            border: 1px solid #c8d8c9;
+            border-radius: 6px;
+        }
+
+        caption {
+            caption-side: top;
+            font-weight: 700;
+            color: #1e3d23;
+            padding-bottom: 10px;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        th, td {
+            padding: 12px 14px; /* 單元格內距，使字體不會貼在格線上 */
+            border: 1px solid #dbe6dc; /* 單一細線框線 */
+            vertical-align: top;
+        }
+
+        thead th {
+            background-color: #2d6a3f; /* 表頭綠色深底色 */
+            color: #ffffff; /* 表頭白色文字，具有高閱讀對比度 */
+            font-weight: 600;
+            border-color: #255834;
+        }
+
+        tbody th {
+            background-color: #f3f8f4; /* 列首標題淺綠底色 */
+            color: #1e3d23;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* 虛擬類別：偶數列斑馬紋背景提升長表格閱讀性 */
+        tbody tr:nth-child(even) td {
+            background-color: #fafdff;
+        }
+
+        tbody tr:hover {
+            background-color: #eef6f0; /* 滑鼠滑過該行時顯現溫和提示底色 */
+        }
+
+        /* ==========================================================================
+           8. 圖片與圖說樣式（figure、figcaption、img）
+           ========================================================================== */
+        figure {
+            margin: 24px 0;
+            background-color: #f7faf7;
+            border: 1px solid #e1ece1;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        /* 圖片使用 max-width 與 height: auto 保持原始等比例縮放，避免變形拉伸 */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            margin: 0 auto;
+        }
+
+        figcaption {
+            font-size: 0.88rem;
+            color: #4b6350;
+            margin-top: 10px;
+            padding: 4px 6px;
+            line-height: 1.6;
+            border-top: 1px dashed #d5e2d6;
+        }
+
+        /* ==========================================================================
+           9. 影片與地圖多媒體自適應容器（類別選擇器）
+           ========================================================================== */
+        .video-box,
+        .map-box {
+            margin: 18px 0;
+            background-color: #f7faf8;
+            border: 1px solid #e2ebe3;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        /* 影片以 16:9 比例自適應容器設定，防止超出內容區 */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 高寬比例公式 (9 / 16 = 56.25%) */
+            height: 0;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* 地圖 iframe 滿版不溢出容器 */
+        .map-wrapper iframe {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 6px;
+            border: none;
+            display: block;
+        }
+
+        /* ==========================================================================
+           10. 折疊提醒區塊與側邊補充資訊（ID 選擇器與 details/summary）
+           ========================================================================== */
+        /* ID 選擇器：設定側邊補充資訊 aside 的特色外觀與琥珀暖橘提醒色條 */
+        #visitor-notes {
+            background-color: #fbfdfb;
+            border-left: 6px solid #e08b2c; /* 溫暖的琥珀橙色醒目標示線 */
+            border-top: 1px solid #ebece2;
+            border-right: 1px solid #ebece2;
+            border-bottom: 1px solid #ebece2;
+        }
+
+        details {
+            margin-bottom: 12px;
+            border: 1px solid #dfe9e0;
+            border-radius: 6px;
+            padding: 10px 14px;
+            background-color: #ffffff;
+            transition: background-color 0.2s ease;
+        }
+
+        details[open] {
+            background-color: #f8fbf9;
+            border-color: #bed5c1;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: #235431;
+            padding: 4px 0;
+        }
+
+        summary:hover {
+            color: #153920;
+        }
+
+        /* ==========================================================================
+           11. 頁尾區塊（ID 選擇器：#sources-section）
+           ========================================================================== */
+        #sources-section {
+            background-color: #f3f7f4;
+            border-top: 3px solid #7ea886;
+            font-size: 0.94rem;
+        }
+
+        .top-link-btn {
+            display: inline-block;
+            background-color: #2d6a3f;
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.88rem;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .top-link-btn:hover {
+            background-color: #194424;
+            color: #ffffff;
+        }
+
+        /* ==========================================================================
+           12. 響應式媒體查詢（針對螢幕寬度 600px 以下的手機窄視窗調整）
+           ========================================================================== */
+        @media (max-width: 600px) {
+            body {
+                padding: 12px 8px;
+            }
+
+            header, nav, article, aside, footer {
+                padding: 20px 16px;
+                margin-bottom: 18px;
+                border-radius: 8px;
+            }
+
+            h1 {
+                font-size: 1.55rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.86rem;
+            }
+
+            .map-wrapper iframe {
+                height: 260px;
+            }
+        }
+
+/* ==========================================================================
+   13. 樣式遷移專區：由 HW06 行內樣式 (Inline Style) 遷移至外部類別規則
+       遵守「HTML 負責內容與語意，CSS 負責外觀與樣式」分離原則。
+       保留原 HW06 的配色、字級、內外距與圓角視覺呈現。
+   ========================================================================== */
+
+/* 遷移 1：專有名詞「草悟道」閱讀焦點標記（原 mark 行內樣式） */
+.reading-focus {
+    background-color: #d1fae5;
+    color: #065f46;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* 遷移 2：節慶盛事「台中爵士音樂節」暖秋金色標記（原 mark 行內樣式） */
+.festival-focus {
+    background-color: #fef3c7;
+    color: #92400e;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* 遷移 3：一日漫遊動線引言提示框（原 p 行內樣式，左側 4px 森林綠裝飾邊條與內距） */
+.route-note {
+    color: #1b4d3e;
+    border-left: 4px solid #2d6a3f;
+    padding-left: 12px;
+    margin: 12px 0;
+    font-weight: 500;
+}
+
+/* 遷移 4：影片播放備註與錯誤 153 說明小字（原 p 行內樣式） */
+.video-note {
+    font-size: 0.88rem;
+    color: #5c705f;
+    margin: 8px 0;
+}
+
+/* 遷移 5：頁尾版權與作業聲明文字（原 small 行內樣式，柔和灰綠色與字元微間距） */
+.report-disclaimer {
+    color: #627566;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+}
