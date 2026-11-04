@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!--
+    HW07_D1582036.html
+    作者：蘇宥緁
+    學號：D1582036
+    主題：綠廊蔓生：勤美草悟道與市民廣場文創報導
+    說明：延續 HW06 景點報導，落實「樣式與內容分離」原則。
+          將所有 head 內的 <style> 元素與原本 5 處行內 style 屬性完全移除，
+          改為透過相對路徑 href="css/hw07.css" 載入外部樣式表。
+          
+    【相對路徑走法說明】：
+    - 本 HTML 位於根目錄「HW07_D1582036/」，因此載入外部樣式表時使用「css/hw07.css」。
+    - 意義：從本 HTML 所在資料夾出發，進入同層的 css 子資料夾，再讀取 hw07.css 檔案。
+    - 注意：此寫法與 ./css/hw07.css 相同；不能寫成 ../css/hw07.css（那代表上一層），
+      也不能寫成絕對路徑 /css/hw07.css 或本機磁碟路徑 C:\...、file://...。
+-->
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>綠廊蔓生：勤美草悟道與市民廣場文創報導 - 蘇宥緁 (D1582036)</title>
+    <meta name="description" content="深入探索台中市西區勤美草悟道與市民廣場的文創綠色廊道，記錄都市綠帶歷史演化、老屋活化文創聚落、假日草地休閒生活與特色散策指南。">
+    <meta name="author" content="蘇宥緁 (D1582036)">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph 社群分享資訊 -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:title" content="綠廊蔓生：勤美草悟道與市民廣場文創報導">
+    <meta property="og:description" content="深入探索台中西區勤美草悟道與市民廣場的文創綠廊，涵蓋歷史綠帶變革、老屋聚落創生、市集散策與大草坪生活指南。">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:image:alt" content="陽光灑落的城市公園大草坪與綠意林蔭步道">
+    <!-- 方法三：透過 link 標記載入外部 CSS 樣式表（從本 HTML 所在資料夾出發，進 css，再讀取 hw07.css） -->
+    <!-- rel="stylesheet" 告訴瀏覽器這是樣式表；link 為 head 內的空元素，不寫結尾標籤 -->
+    <link rel="stylesheet" href="css/hw07.css">
+</head>
+<body>
+
+    <!-- 頁首 header：包含報導所屬頻道標籤、主副標題與作者學號資訊 -->
+    <header id="top">
+        <span class="channel-tag">台中文旅專題頻道 ｜ 都市再生與生活美學深度紀實</span>
+        <h1>綠廊蔓生：勤美草悟道與市民廣場文創報導</h1>
+        <p class="header-subtitle">
+            <strong>副標題：</strong>從綠帶貫穿到文化聚落，見證台中西區林蔭與常民創意的呼吸節奏
+        </p>
+        <div class="meta-info-box">
+            採訪撰文／整理：蘇宥緁（學號：D1582036）<br>
+            發布日期：2026 年 10 月 19 日 ｜ HW06 美化更新：2026 年 10 月 27 日
+        </div>
+    </header>
+
+    <!-- 導覽列 nav：本頁章節目錄與錨點跳轉 -->
+    <nav>
+        <h2>報導導覽目錄</h2>
+        <ul class="nav-list">
+            <li><a href="#intro">一、綠廊前世今生：經國園道至草悟道的蛻變</a></li>
+            <li><a href="#square-life">二、市民廣場：大草坪上的城市客廳與常民生活</a></li>
+            <li><a href="#creative-cluster">三、巷弄創意蔓生：老眷舍與青年手作聚落</a></li>
+            <li><a href="#features-list">四、草悟道核心文創散策焦點</a></li>
+            <li><a href="#travel-route">五、一日綠廊藝文漫遊推薦動線</a></li>
+            <li><a href="#venues-table">六、周邊文創與休閒場域比較分析表</a></li>
+            <li><a href="#media-section">七、現場影像與影音紀實（YouTube 嵌入與連結）</a></li>
+            <li><a href="#map-section">八、地理位置與交通導引（Google 地圖嵌入）</a></li>
+            <li><a href="#visitor-notes">九、訪客參觀叮嚀與友善守則（折疊提醒）</a></li>
+            <li><a href="#sources-section">十、報導資料與多媒體來源彙整</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主要內容 main：全頁核心內容區塊 -->
+    <main>
+
+        <!-- 報導文章 article：收納完整報導主體內容 -->
+        <article>
+
+            <!-- 第一章 section：草悟道歷史背景與都市綠廊規劃 -->
+            <section id="intro">
+                <h2>一、綠廊前世今生：經國園道至草悟道的蛻變</h2>
+                <p>
+                    台中市西區的
+                    <!-- 樣式遷移處 1：原行內樣式改為外部類別 .reading-focus -->
+                    <mark class="reading-focus">草悟道（Calligraphy Greenway）</mark>
+                    ，北起國立自然科學博物館，南至國立台灣美術館與美術園道，全長約達 3.6 公里。這條貫穿台中舊市區西緣的長條狀都市綠帶，最初在都市計畫中被稱為「經國綠園道」。回溯其歷史脈絡，早期綠園道主要扮演都市防火避難與景觀阻隔的傳統帶狀公園角色；然而，隨著台中市文化軸心由舊火車站商圈逐漸向西移動，這處長青林蔭逐步轉化為串聯大型文化機構的休閒綠動脈。
+                </p>
+                <p>
+                    2010 年代台中市政府推動「草悟道計畫」，其設計概念汲取中國書法中的「行草」筆意——以<strong>「行雲流水、氣韻流暢」</strong>的哲學隱喻融入空間動線與景觀鋪面。這場都市空間改造重新定義了人與綠地的關係，大幅減少人車衝突的阻隔圍牆，鋪設寬闊的自行車與步行混和大道，讓濃密樟樹、阿勃勒與台灣欒樹交織而成的樹冠層，成為都市居民在水泥叢林中得以深度呼吸的綠色肺葉。
+                </p>
+            </section>
+
+            <hr>
+
+            <!-- 第二章 section：市民廣場草地休閒與節慶活動 -->
+            <section id="square-life">
+                <h2>二、市民廣場：大草坪上的城市客廳與常民生活</h2>
+                <p>
+                    座落於草悟道中段核心位置的<strong>台中市民廣場</strong>，佔地約四公頃，是一面開闊且平整的高遮陰草坪。每逢週末午後，這裡化身為全台中最熱鬧的「城市客廳」。家庭鋪設野餐墊共享輕食，毛小孩在陽光下自由奔跑，街頭藝人在林蔭邊緣吹奏薩克斯風或彈奏吉他。市民廣場不僅是視覺上的開放綠洲，更是承載跨世代日常交流的情感場域。
+                </p>
+                <p>
+                    更為人稱道的是，市民廣場長年作為大型藝文盛事的孕育地，其中最具國際知名度的便是每年秋季登場的
+                    <!-- 樣式遷移處 2：原行內樣式改為外部類別 .festival-focus -->
+                    <mark class="festival-focus">「台中爵士音樂節」</mark>
+                    。來自世界各國的爵士樂手在星空大舞台上傾情演出，草地上席地而坐的數萬名聽眾舉杯暢飲、輕聲和鳴，造就了全台灣獨一無二的露天草地音樂節慶典範。
+                </p>
+            </section>
+
+            <hr>
+
+            <!-- 第三章 section：周邊老屋改造與青年文創聚落 -->
+            <section id="creative-cluster">
+                <h2>三、巷弄創意蔓生：老眷舍與青年手作聚落</h2>
+                <p>
+                    草悟道之所以具備深厚的文創魅力，關鍵在於綠廊主幹向兩側垂直延伸的巷弄紋理。以<strong>中興街、美村路一段與向上北路</strong>為代表的小街巷內，原本隱藏著大量建於民國五、六零年代的公教宿舍與老舊民宅。透過民間自發性「老屋新生」計畫，例如由自來水公司老宿舍改建而成的「綠光計畫（Fantasy Story）」，這些紅磚斑駁、鐵窗花交錯的歷史建物，被賦予了全新的生命力。
+                </p>
+                <p>
+                    年輕創作者、獨立皮件職人、手沖咖啡館、獨立書店與古物選物店紛紛進駐於此，保留了老屋的磨石子地板與天井採光，同時注入當代美學視野。這種由大尺度公共綠地自然過渡至微尺度精緻手作聚落的空間層次，使市民與旅人在幾步路之間，便能自開闊的自然原野切換至溫潤細膩的生活美學體驗。
+                </p>
+            </section>
+
+            <hr>
+
+            <!-- 第四章 section：核心文創散策亮點 -->
+            <section id="features-list">
+                <h2>四、草悟道核心文創散策焦點</h2>
+                <p>
+                    整理草悟道廊帶最受歡迎且具代表性的四大特色亮點：
+                </p>
+                <!-- 無序清單 ul：條列四大散策亮點 -->
+                <ul>
+                    <li><strong>勤美誠品植生牆景觀：</strong>亞洲知名的垂直綠化建築典範，外牆植被與內部採光天井相映成趣，讓商場本身成為生態美學展品。</li>
+                    <li><strong>綠光計畫老眷舍聚落：</strong>保留自來水廠舊宿舍瓦片與水泥階梯，聚集原創皮件、手作金工、甜點與植物苔球工作坊。</li>
+                    <li><strong>週末草地文創小農市集：</strong>由在地青年發起的市集品牌，販售無毒小農果乾、台灣手工陶瓷與陶藝器皿。</li>
+                    <li><strong>審計新村文創基地（近鄰延伸）：</strong>省府時期眷舍活化園區，匯聚數十家文創小攤車與文具文史選品店。</li>
+                </ul>
+            </section>
+
+            <hr>
+
+            <!-- 第五章 section：一日散策推薦動線 -->
+            <section id="travel-route">
+                <h2>五、一日綠廊藝文漫遊推薦動線</h2>
+                <!-- 樣式遷移處 3：原行內樣式改為外部類別 .route-note -->
+                <p class="route-note">
+                    建議初次探訪者可依照以下時間順序進行一日漫遊，體會草悟道自晨光、午後至暮色的氛圍轉換：
+                </p>
+                <!-- 有序清單 ol：依時間先後順序推薦路線 -->
+                <ol>
+                    <li><strong>上午 10:00 - 11:30（起點：國立自然科學博物館）：</strong>自博館路綠廊起步，沿著高聳樟樹步道漫步往南，感受清晨綠意微風。</li>
+                    <li><strong>中午 11:30 - 13:30（午餐與特色選品：勤美誠品與公益路商圈）：</strong>在綠意環繞的餐廳享用輕食，或走訪特色設計商店購買生活文具。</li>
+                    <li><strong>下午 13:30 - 15:30（老屋巷弄探索：綠光計畫與美村路）：</strong>穿梭向上北路舊巷，探索手作皮革、獨立雜誌與手沖單品咖啡香。</li>
+                    <li><strong>傍晚 15:30 - 17:30（草地休閒體驗：市民廣場大草坪）：</strong>攜帶野餐墊坐在樹蔭下閱讀，欣賞黃昏金色斜陽與街頭音樂演出。</li>
+                    <li><strong>夜晚 17:30 - 19:30（終點：審計新村或草悟廣場 PARK2）：</strong>探訪下沉式沙漠植栽造景與特色異國餐飲，品味台中越夜越美的夜間生活美學。</li>
+                </ol>
+            </section>
+
+            <hr>
+
+            <!-- 第六章 section：周邊場域比較表格 -->
+            <section id="venues-table">
+                <h2>六、周邊文創與休閒場域比較分析表</h2>
+                <p>
+                    整理草悟道周邊主要文創與休閒場域之型態特色及推薦活動：
+                </p>
+                <!-- 比較表格 table：已移除 HW05 的舊式 border="1"，全權透過 CSS 美化樣式 -->
+                <div class="table-responsive">
+                    <table summary="勤美草悟道周邊四大代表性文創與休閒場域之空間形態、推薦走訪時段、主要商品及適合族群之綜合分析">
+                        <caption><strong>表一：勤美草悟道周邊文創與休閒空間綜合評比表</strong></caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">場域名稱</th>
+                                <th scope="col">空間形態與核心特色</th>
+                                <th scope="col">推薦走訪時段</th>
+                                <th scope="col">主要商品或體驗項目</th>
+                                <th scope="col">最適合對象</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">PARK2 草悟廣場</th>
+                                <td>下沉式非典型公園，結合大型塊根植物與異國餐飲酒吧</td>
+                                <td>傍晚 16:00 至 晚間 21:00</td>
+                                <td>精釀啤酒、沙漠植栽選品、特色戶外運動體驗</td>
+                                <td>年輕族群、攝影愛好者</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">范特喜 綠光計畫</th>
+                                <td>兩層樓自來水員工舊宿舍聚落，保留紅磚牆與老樹攀爬天井</td>
+                                <td>午後 13:00 至 傍晚 18:00</td>
+                                <td>手工客製皮件、手作銀飾金工、獨立出版品、精品手沖咖啡</td>
+                                <td>深度文創愛好者、手作體驗者</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">台中市民廣場</th>
+                                <td>廣達四公頃之全開放式平坦草坪，四周被高聳行道樹包圍</td>
+                                <td>週末午後 14:00 至 18:00</td>
+                                <td>免費草地野餐、毛小孩奔跑散步、街頭藝人音樂演出欣賞</td>
+                                <td>親子家庭、情侶慢活散策</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">審計新村 368 園區</th>
+                                <td>省政府時期基層公務員眷舍，黃色木造窗櫺與雙層挑高階梯</td>
+                                <td>週末白天 11:00 至 18:30</td>
+                                <td>特色暮暮市集、文創插畫明信片、手工泡芙與蛋塔點心</td>
+                                <td>觀光客、文青打卡拍照群</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <hr>
+
+            <!-- 第七章 section：照片與影音紀錄 -->
+            <section id="media-section">
+                <h2>七、現場影像與影音紀實</h2>
+                <p>
+                    透過現場照片與影片紀錄，呈現草悟道林蔭景觀與悠閒氛圍。
+                </p>
+
+                <!-- 圖片 figure 與圖說 figcaption：使用 CSS max-width 保持等比例不變形 -->
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&w=640&h=360&q=80" alt="陽光穿透草悟道林蔭大道，都市居民在綠意盎然的大草坪邊緣休閒散步" width="640" height="360">
+                    <figcaption>
+                        <strong>圖一：</strong>草悟道與市民廣場交會處的綠蔭大道，展現人與都市綠意共生的慢活日常。<br>
+                        （圖片來源：<a href="https://unsplash.com/photos/green-grass-field-and-trees-during-daytime-O35rT6OytRo" target="_blank" rel="noopener noreferrer">Unsplash 開放授權圖庫 - 都市綠地景觀攝影</a>）
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=640&h=360&q=80" alt="台中西區林蔭茂密的樟樹與人行散步道俯瞰景觀" width="640" height="360">
+                    <figcaption>
+                        <strong>圖二：</strong>綠廊主幹道上枝葉扶疏的長青林蔭，形成阻隔都市熱島效應的涼爽綠肺。<br>
+                        （圖片來源：<a href="https://unsplash.com/photos/green-trees-under-cloudy-sky-during-daytime-FkJw3dZ6Qc8" target="_blank" rel="noopener noreferrer">Unsplash 開放授權圖庫 - 自然林蔭景觀攝影</a>）
+                    </figcaption>
+                </figure>
+
+                <h3>影音紀錄：勤美草悟道漫步與文創導覽</h3>
+                <p>
+                    <strong>一般影片連結：</strong>
+                    <a href="https://www.youtube.com/watch?v=kY7wVvWf5Q0" target="_blank" rel="noopener noreferrer">
+                        前往 YouTube 開啟觀看「【台中散步】勤美草悟道、市民廣場與綠光計畫巷弄一日漫遊」影片
+                    </a>
+                </p>
+
+                <!-- YouTube 嵌入：以自適應 video-wrapper 保持 16:9 比例，避免小視窗爆版 -->
+                <div class="video-box">
+                    <details>
+                        <summary><strong>點擊展開／收合：YouTube 影片嵌入視窗（建議於本機 HTTP 伺服器預覽下播放）</strong></summary>
+                        <!-- 樣式遷移處 4：原行內樣式改為外部類別 .video-note -->
+                        <p class="video-note">
+                            <em>備註：若以本機檔案形式（file://）開啟，YouTube 播放器可能因瀏覽器安全參照位址限制而顯示錯誤代碼 153；請透過上方的一般影片連結開啟或在 HTTP 伺服器預覽。</em>
+                        </p>
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube-nocookie.com/embed/kY7wVvWf5Q0" title="台中勤美草悟道與市民廣場漫步紀實報導影片" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <hr>
+
+            <!-- 第八章 section：Google 地圖嵌入與交通資訊 -->
+            <section id="map-section">
+                <h2>八、地理位置與交通導引（Google 地圖）</h2>
+                <p>
+                    <strong>場域實體地址：</strong>403 台中市西區公益路 163-1 號周邊（市民廣場、勤美 誠品綠園道至向上北路綠廊軸帶）
+                </p>
+                <p>
+                    <strong>座標資訊：</strong>北緯 24.15124 度，東經 120.66373 度（24.15124, 120.66373）
+                </p>
+                <p>
+                    <strong>大眾運輸建議：</strong>搭乘台中捷運至「水安宮站」轉乘台中市公車 27 號至「經國園道站」；或搭乘台中公車 300 號至 310 號台灣大道幹線公車於「科博館站」下車，步行 8 分鐘即抵達綠廊北起點。
+                </p>
+                <p>
+                    <strong>一般地圖開啟連結：</strong>
+                    <a href="https://maps.google.com/maps?q=24.15124,120.66373&amp;z=16" target="_blank" rel="noopener noreferrer">
+                        點擊在 Google 地圖中開啟「台中勤美草悟道與市民廣場」地圖標記
+                    </a>
+                </p>
+
+                <!-- Google 地圖 iframe：外層加上 map-wrapper 容器，寬度 100% 滿版響應 -->
+                <div class="map-box">
+                    <div class="map-wrapper">
+                        <iframe src="https://maps.google.com/maps?q=24.15124,120.66373&amp;z=16&amp;output=embed" height="360" title="Google 地圖：台中勤美草悟道與市民廣場地理位置標記" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+
+        <!-- 補充資訊 aside：以 ID 選擇器 #visitor-notes 賦予暖調警示色框，呈現友善守則 -->
+        <aside id="visitor-notes">
+            <h2>九、訪客參觀叮嚀與友善守則</h2>
+            <p>
+                維護美好的公共綠廊空間有賴每位到訪者的共同珍惜，前往參觀時請留意以下事項：
+            </p>
+
+            <details open>
+                <summary><strong>草地野餐與寵物友善規範（點擊可收合）</strong></summary>
+                <ul>
+                    <li>市民廣場草坪全面歡迎自備野餐墊，但<strong>嚴禁生火、烤肉或釘下營釘</strong>，以免破壞草根土壤。</li>
+                    <li>歡迎攜帶犬貓散步，在草坪上請飼主務必隨身攜帶牽繩，並即時自主清理寵物排泄物。</li>
+                    <li>垃圾請隨手帶走或分類投入周邊公共垃圾桶，落實「無痕綠地」生活態度。</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary><strong>街頭藝人表演打賞與音量規範（點擊展開）</strong></summary>
+                <p>
+                    園道周邊街頭藝人均領有台中市文化局核發之合格展演證，若欣賞其才藝歡迎投幣打賞給予肯定。晚間 21:30 後依法進行低音量控制，避免打擾周邊社區住戶安寧。
+                </p>
+            </details>
+
+            <details>
+                <summary><strong>周邊汽機車停車建議（點擊展開）</strong></summary>
+                <p>
+                    週末草悟道周邊車潮洶湧，建議多加利用「草悟道地下停車場」、「市民廣場地下停車場」或將車輛停放於台灣大道忠明國小周邊再步行前往，減少塞車尋覓車位時間。
+                </p>
+            </details>
+        </aside>
+
+    </main>
+
+    <!-- 頁尾 footer：以 ID 選擇器 #sources-section 定義樣式，彙整文獻並提供回頂端按鈕 -->
+    <footer id="sources-section">
+        <h2>十、報導資料與多媒體來源彙整</h2>
+
+        <h3>參考資料與引用文獻</h3>
+        <ul>
+            <li><strong>都市歷史與規劃資料：</strong>台中市政府觀光旅遊局「草悟道園道景觀改造工程紀實與簡介」及「大玩台中」官方文旅專頁。</li>
+            <li><strong>老屋活化與文創報導：</strong>范特喜微創文化官方網站「綠光計畫：老宿舍聚落活化記錄」。</li>
+            <li><strong>節慶與展演活動：</strong>台中市政府文化局歷屆「台中爵士音樂節活動史料手冊」。</li>
+            <li><strong>攝影照片來源一：</strong>Unsplash 公共圖庫（攝影師：Renan Brun，主題：公園綠地與大草坪，採 Unsplash 免費商用授權許可）。</li>
+            <li><strong>攝影照片來源二：</strong>Unsplash 公共圖庫（攝影師：Tobias Tullius，主題：林蔭樹木與人行道，採 Unsplash 免費商用授權許可）。</li>
+            <li><strong>YouTube 影片來源：</strong>「KKday 台灣 / 玩味台中」草悟道文創街區散步導覽公開影片。</li>
+            <li><strong>Google 地圖資訊：</strong>Google Maps Platform 提供之草悟道經緯度座標（24.15124, 120.66373）與地理標記。</li>
+        </ul>
+
+        <hr>
+
+        <p>
+            <strong>作者學生資訊：</strong>蘇宥緁 ｜ 學號：D1582036<br>
+            <!-- 回頂端連結：使用 CSS 按鈕樣式美化點擊範圍 -->
+            <a href="#top" class="top-link-btn">▲ 返回頁首（回頂端目錄）</a>
+        </p>
+        <p>
+            <!-- 樣式遷移處 5：原行內樣式改為外部類別 .report-disclaimer -->
+            <small class="report-disclaimer">&copy; 2026 蘇宥緁 (D1582036) 本網頁為大專院校課程 HTML5 與 CSS 專題報導作業練習成果</small>
+        </p>
+    </footer>
+
+</body>
+</html>
